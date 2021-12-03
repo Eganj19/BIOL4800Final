@@ -1,0 +1,83 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+```{r}
+install.packages("ggplot2")
+library(ggplot2)
+```
+
+```{r}
+gapminder <- read.csv("/Users/Josh/Desktop/Data_Analysis_CSV.csv") 
+head(gapminder)
+```
+```{r}
+ggplot(data=gapminder, mapping=aes(x=Calories, y=Foods,X)) + geom_point(alpha=2, color = "gold") + scale_x_log10()
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=Calories, y=Foods,X)) + geom_point(alpha=2, color = "gold") + scale_x_log10() + geom_smooth(method = lm, size = 2, color = "purple")
+```
+```{r}
+ggplot(data=gapminder, mapping=aes(x=Protein, y=Calories)) + geom_point(alpha=0.5) + scale_x_log10()
+
+```
+```{r}
+totals <- read.csv("/Users/Josh/Desktop/Results Final.csv") 
+head(totals)
+```
+```{r}
+ggplot(data=totals, mapping = aes(x=Protein..g., y=Fats..g.)) +
+  geom_point(alpha=5) +
+  facet_wrap( ~ Totals) + 
+  theme(axis.text.x = element_text(angle = 45))
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=Calories, y=Fat)) + geom_point() + geom_smooth(method = lm, size = 1, color = "purple")
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=Protein, y=Calories)) + geom_point(alpha=0.5) + scale_x_log10() + geom_smooth(method = lm, size = 2)
+```
+
+```{r}
+ggplot(data=gapminder, mapping=aes(x=Calories, y=Fat, by=Foods, color=Foods)) + geom_line()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
